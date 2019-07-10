@@ -6,9 +6,9 @@
       <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bin/pytorch_pretrained_bert" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/pytorch_pretrained_bert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_squad.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_squad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract_features.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_classifier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_squad.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models-MLM-NSP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models-MLM-NSP.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models-SQuAD.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models-SQuAD.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/Comparing-TF-and-PT-models.ipynb" afterDir="false" />
@@ -35,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_squad.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../src/run_squad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12165">
-              <caret line="832" selection-start-line="832" selection-end-line="832" />
+            <state relative-caret-position="427">
+              <caret line="788" column="4" selection-start-line="788" selection-start-column="4" selection-end-line="788" selection-end-column="4" />
               <folding>
                 <element signature="e#670#708#0" expanded="true" />
               </folding>
@@ -47,13 +47,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/modeling.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/modeling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
+            <state relative-caret-position="6885">
               <caret line="476" column="41" selection-start-line="476" selection-start-column="41" selection-end-line="476" selection-end-column="41" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/extract_features.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -75,22 +80,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py">
+        <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-              <folding>
-                <element signature="e#673#711#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2985">
-              <caret line="214" column="49" selection-start-line="214" selection-start-column="49" selection-end-line="214" selection-end-column="49" />
+            <state relative-caret-position="345">
+              <caret line="23" column="67" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
               <folding>
                 <element signature="e#182#191#0" expanded="true" />
               </folding>
@@ -100,31 +93,29 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>boto</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py" />
         <option value="$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py" />
         <option value="$PROJECT_DIR$/pytorch_pretrained_bert/modeling.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" />
+        <option value="$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py" />
+        <option value="$PROJECT_DIR$/../src/run_squad.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="67" />
+    <option name="y" value="54" />
+    <option name="width" value="1853" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -137,23 +128,7 @@
           <expand>
             <path>
               <item name="examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="distributed_-1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="pytorch_pretrained_bert" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -178,8 +153,50 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.run_squad">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="file_utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../pytorch-pretrained-BERT/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytorch_pretrained_bert" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="modeling" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="examples" />
+      <module name="src" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -200,18 +217,18 @@
       <method v="2" />
     </configuration>
     <configuration name="run_squad" type="PythonConfigurationType" factoryName="Python">
-      <module name="examples" />
+      <module name="src" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$PROJECT_DIR$/../../pytorch-pretrained-BERT/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../src" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_squad.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../src/run_squad.py" />
       <option name="PARAMETERS" value="--bert_model KTNET --do_train --do_predict --do_lower_case --train_file train-v1.1.json --predict_file dev-v1.1.json --train_batch_size 1 --learning_rate 3e-5 --num_train_epochs 2.0 --max_seq_length 384 --doc_stride 128 --output_dir output/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,12 +237,57 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.modeling" />
       <item itemvalue="Python.run_squad" />
+      <item itemvalue="Python.file_utils" />
+      <item itemvalue="Python.modeling" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.file_utils" />
         <item itemvalue="Python.modeling" />
       </list>
     </recent_temporary>
@@ -245,13 +307,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29408512" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25096738" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32925585" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32925585" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959225" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,82 +355,82 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py</url>
           <line>171</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/modeling.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/modeling.py</url>
           <line>493</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>831</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/modeling.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/modeling.py</url>
           <line>464</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>978</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>778</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>822</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>820</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/tokenization.py</url>
           <line>105</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/tokenization.py</url>
           <line>111</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py</url>
           <line>188</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py</url>
           <line>180</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py</url>
           <line>140</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py</url>
           <line>45</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py</url>
+          <url>file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/tokenization.py</url>
           <line>72</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_squad.py</url>
+          <url>file://$PROJECT_DIR$/../src/run_squad.py</url>
           <line>835</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
@@ -375,17 +438,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cache/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="91" lean-forward="true" selection-start-column="91" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cache/distributed_-1/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/__init__.py">
+    <entry file="file://$PROJECT_DIR$/cache/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084.json" />
+    <entry file="file://$PROJECT_DIR$/cache/distributed_-1/9c41111e2de84547a463fd39217199738d1e3deb72d4fec4399e6e241983c6f0.ae3cef932725ca7a30cdcb93fc6e09150a55e2a130ec7af63975a16c153ae2ba.json" />
+    <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -413,15 +468,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_squad.py">
+    <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/tokenization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12165">
-          <caret line="832" selection-start-line="832" selection-end-line="832" />
+        <state relative-caret-position="945">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
-            <element signature="e#670#708#0" expanded="true" />
+            <element signature="e#673#711#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/KTNET-vocab">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/run_classifier.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/modeling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6885">
+          <caret line="476" column="41" selection-start-line="476" selection-start-column="41" selection-end-line="476" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/extract_features.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file:///usr/lib/python3.5/pathlib.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -437,30 +508,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/tokenization.py">
+    <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/boto3/s3/transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#673#711#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/file_utils.py">
+    <entry file="file://$PROJECT_DIR$/../src/pytorch_pretrained_bert/file_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2985">
-          <caret line="214" column="49" selection-start-line="214" selection-start-column="49" selection-end-line="214" selection-end-column="49" />
+        <state relative-caret-position="345">
+          <caret line="23" column="67" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
           <folding>
             <element signature="e#182#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_pretrained_bert/modeling.py">
+    <entry file="file://$PROJECT_DIR$/../src/run_squad.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="476" column="41" selection-start-line="476" selection-start-column="41" selection-end-line="476" selection-end-column="41" />
+        <state relative-caret-position="427">
+          <caret line="788" column="4" selection-start-line="788" selection-start-column="4" selection-end-line="788" selection-end-column="4" />
+          <folding>
+            <element signature="e#670#708#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

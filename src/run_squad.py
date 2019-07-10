@@ -37,6 +37,8 @@ from pytorch_pretrained_bert.modeling import BertForQuestionAnswering
 from pytorch_pretrained_bert.optimization import BertAdam
 from pytorch_pretrained_bert.file_utils import *
 
+import sys
+
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s', 
                     datefmt = '%m/%d/%Y %H:%M:%S',
                     level = logging.INFO)
@@ -775,6 +777,21 @@ def main():
                         help='Loss scaling, positive power of 2 values can improve fp16 convergence.')
 
     args = parser.parse_args()
+
+    # Built-in Params for CodaLab
+    args.bert_model = "KTNET"
+    args.do_train = True
+    args.do_predict = True
+    args.do_lower_case = True
+    args.train_file = "train-v1.1.json"
+    args.predict_file = sys.argv[1]
+    args.train_batch_size = 12
+    args.learning_rate = 3e-5
+    args.num_train_epochs = 2.0
+    args.max_seq_length = 384
+    args.doc_stride = 128
+    args.output_dir = sys.argv[2]
+
 
     if args.local_rank == -1 or args.no_cuda:
         device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
