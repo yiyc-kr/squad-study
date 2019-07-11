@@ -17,7 +17,8 @@ pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/venv
 
-./src/*-pretrained-model
-./src/*-pretrained-model.json
-./src/*-vocab
-./src/*-vocab.json
+src/*-pretrained-model
+src/*-pretrained-model.json
+src/*-vocab
+src/*-vocab.json
+.idea/
