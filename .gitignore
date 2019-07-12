@@ -21,4 +21,6 @@ src/*-pretrained-model
 src/*-pretrained-model.json
 src/*-vocab
 src/*-vocab.json
+src/.idea/
 .idea/
+
