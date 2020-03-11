@@ -26,6 +26,7 @@ import math
 import os
 import random
 from tqdm import tqdm, trange
+import toml
 
 import numpy as np
 import torch
@@ -710,14 +711,13 @@ def set_optimizer_params_grad(named_params_optimizer, named_params_model, test_n
     return is_nan
 
 def main():
-    '''
     parser = argparse.ArgumentParser()
 
     ## Required parameters
-    parser.add_argument("--bert_model", default=None, type=str, required=True,
+    parser.add_argument("--bert_model", default=None, type=str,
                         help="Bert pre-trained model selected in the list: bert-base-uncased, "
                              "bert-large-uncased, bert-base-cased, bert-base-multilingual, bert-base-chinese.")
-    parser.add_argument("--output_dir", default=None, type=str, required=True,
+    parser.add_argument("--output_dir", default=None, type=str,
                         help="The output directory where the model checkpoints will be written.")
 
     ## Other parameters
@@ -780,73 +780,52 @@ def main():
                         type=float, default=128,
                         help='Loss scaling, positive power of 2 values can improve fp16 convergence.')
 
+    parser.add_argument('--config_file', '-c',
+                        type=str,
+                        default=None)
+
     args = parser.parse_args()
-    '''
 
-    # Built-in Params for CodaLab
-    do_train = True
-    do_predict = True
-    do_lower_case = True
-    train_file = "src/train-v1.1.json"
-    train_batch_size = 4
-    learning_rate = 3e-5
-    num_train_epochs = 2.0
-    max_seq_length = 320
-    doc_stride = 128
-    bert_model = "src/KTNET-large"
-    predict_file = sys.argv[1]
-    output_dir = sys.argv[2]
+    if args.config_file:
+        config = toml.load(args.config_file)
+        for key_ in config:
+            setattr(args, key_, config[key_])
 
-    max_query_length = 64
-    predict_batch_size = 8
-    warmup_proportion = 0.1
-    n_best_size = 20
-    max_answer_length = 30
-    verbose_logging = False
-    no_cuda = False
-    seed = 42
-    gradient_accumulation_steps = 1
-    local_rank = -1
-    optimize_on_cpu = False
-    fp16 = False
-    loss_scale = 128
-    print(sys.argv[1])
-
-    if local_rank == -1 or no_cuda:
-        device = torch.device("cuda" if torch.cuda.is_available() and not no_cuda else "cpu")
+    if args.local_rank == -1 or args.no_cuda:
+        device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
         n_gpu = torch.cuda.device_count()
     else:
-        device = torch.device("cuda", local_rank)
+        device = torch.device("cuda", args.local_rank)
         n_gpu = 1
         # Initializes the distributed backend which will take care of sychronizing nodes/GPUs
         torch.distributed.init_process_group(backend='nccl')
-        if fp16:
+        if args.fp16:
             logger.info("16-bits training currently not supported in distributed training")
-            fp16 = False # (see https://github.com/pytorch/pytorch/pull/13496)
+            args.fp16 = False # (see https://github.com/pytorch/pytorch/pull/13496)
     logger.info("device: {} n_gpu: {}, distributed training: {}, 16-bits trainiing: {}".format(
-        device, n_gpu, bool(local_rank != -1), fp16))
+        device, n_gpu, bool(args.local_rank != -1), args.fp16))
 
-    if gradient_accumulation_steps < 1:
+    if args.gradient_accumulation_steps < 1:
         raise ValueError("Invalid gradient_accumulation_steps parameter: {}, should be >= 1".format(
-                            gradient_accumulation_steps))
+                            args.gradient_accumulation_steps))
 
-    train_batch_size = int(train_batch_size / gradient_accumulation_steps)
+    train_batch_size = int(args.train_batch_size / args.gradient_accumulation_steps)
 
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
     if n_gpu > 0:
-        torch.cuda.manual_seed_all(seed)
+        torch.cuda.manual_seed_all(args.seed)
 
-    if not do_train and not do_predict:
+    if not args.do_train and not args.do_predict:
         raise ValueError("At least one of `do_train` or `do_predict` must be True.")
 
-    if do_train:
-        if not train_file:
+    if args.do_train:
+        if not args.train_file:
             raise ValueError(
                 "If `do_train` is True, then `train_file` must be specified.")
-    if do_predict:
-        if not predict_file:
+    if args.do_predict:
+        if not args.predict_file:
             raise ValueError(
                 "If `do_predict` is True, then `predict_file` must be specified.")
 
@@ -854,33 +833,33 @@ def main():
     #     raise ValueError("Output directory () already exists and is not empty.")
     # os.makedirs(output_dir, exist_ok=True)
 
-    tokenizer = BertTokenizer.from_pretrained(bert_model)
+    tokenizer = BertTokenizer.from_pretrained(args.bert_model)
 
     train_examples = None
     num_train_steps = None
-    if do_train:
+    if args.do_train:
         train_examples = read_squad_examples(
-            input_file=train_file, is_training=True)
+            input_file=args.train_file, is_training=True)
         num_train_steps = int(
-            len(train_examples) / train_batch_size / gradient_accumulation_steps * num_train_epochs)
+            len(train_examples) / train_batch_size / args.gradient_accumulation_steps * args.num_train_epochs)
 
     # Prepare model
-    model = BertForQuestionAnswering.from_pretrained(bert_model,
-                cache_dir=PYTORCH_PRETRAINED_BERT_CACHE / 'distributed_{}'.format(local_rank))
-    if fp16:
+    model = BertForQuestionAnswering.from_pretrained(args.bert_model,
+                cache_dir=PYTORCH_PRETRAINED_BERT_CACHE / 'distributed_{}'.format(args.local_rank))
+    if args.fp16:
         model.half()
     model.to(device)
-    if local_rank != -1:
-        model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[local_rank],
-                                                          output_device=local_rank)
+    if args.local_rank != -1:
+        model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.local_rank],
+                                                          output_device=args.local_rank)
     elif n_gpu > 1:
         model = torch.nn.DataParallel(model)
 
     # Prepare optimizer
-    if fp16:
+    if args.fp16:
         param_optimizer = [(n, param.clone().detach().to('cpu').float().requires_grad_()) \
                             for n, param in model.named_parameters()]
-    elif optimize_on_cpu:
+    elif args.optimize_on_cpu:
         param_optimizer = [(n, param.clone().detach().to('cpu').requires_grad_()) \
                             for n, param in model.named_parameters()]
     else:
@@ -891,18 +870,18 @@ def main():
         {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay_rate': 0.0}
         ]
     optimizer = BertAdam(optimizer_grouped_parameters,
-                         lr=learning_rate,
-                         warmup=warmup_proportion,
+                         lr=args.learning_rate,
+                         warmup=args.warmup_proportion,
                          t_total=num_train_steps)
 
     global_step = 0
-    if do_train:
+    if args.do_train:
         train_features = convert_examples_to_features(
             examples=train_examples,
             tokenizer=tokenizer,
-            max_seq_length=max_seq_length,
-            doc_stride=doc_stride,
-            max_query_length=max_query_length,
+            max_seq_length=args.max_seq_length,
+            doc_stride=args.doc_stride,
+            max_query_length=args.max_query_length,
             is_training=True)
         logger.info("***** Running training *****")
         logger.info("  Num orig examples = %d", len(train_examples))
@@ -916,14 +895,14 @@ def main():
         all_end_positions = torch.tensor([f.end_position for f in train_features], dtype=torch.long)
         train_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids,
                                    all_start_positions, all_end_positions)
-        if local_rank == -1:
+        if args.local_rank == -1:
             train_sampler = RandomSampler(train_data)
         else:
             train_sampler = DistributedSampler(train_data)
         train_dataloader = DataLoader(train_data, sampler=train_sampler, batch_size=train_batch_size)
 
         model.train()
-        for _ in trange(int(num_train_epochs), desc="Epoch"):
+        for _ in trange(int(args.num_train_epochs), desc="Epoch"):
             for step, batch in enumerate(tqdm(train_dataloader, desc="Iteration")):
                 if n_gpu == 1:
                     batch = tuple(t.to(device) for t in batch) # multi-gpu does scattering it-self
@@ -931,15 +910,15 @@ def main():
                 loss = model(input_ids, segment_ids, input_mask, start_positions, end_positions)
                 if n_gpu > 1:
                     loss = loss.mean() # mean() to average on multi-gpu.
-                if fp16 and loss_scale != 1.0:
+                if args.fp16 and loss_scale != 1.0:
                     # rescale loss for fp16 training
                     # see https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html
                     loss = loss * loss_scale
-                if gradient_accumulation_steps > 1: loss = loss / gradient_accumulation_steps
+                if args.gradient_accumulation_steps > 1: loss = loss / args.gradient_accumulation_steps
                 loss.backward()
-                if (step + 1) % gradient_accumulation_steps == 0:
-                    if fp16 or optimize_on_cpu:
-                        if fp16 and loss_scale != 1.0:
+                if (step + 1) % args.gradient_accumulation_steps == 0:
+                    if args.fp16 or args.optimize_on_cpu:
+                        if args.fp16 and loss_scale != 1.0:
                             # scale down gradients for fp16 training
                             for param in model.parameters():
                                 if param.grad is not None:
@@ -957,32 +936,32 @@ def main():
                     model.zero_grad()
                     global_step += 1
 
-    if do_predict:
+    if args.do_predict:
         eval_examples = read_squad_examples(
-            input_file=predict_file, is_training=False)
+            input_file=args.predict_file, is_training=False)
         eval_features = convert_examples_to_features(
             examples=eval_examples,
             tokenizer=tokenizer,
-            max_seq_length=max_seq_length,
-            doc_stride=doc_stride,
-            max_query_length=max_query_length,
+            max_seq_length=args.max_seq_length,
+            doc_stride=args.doc_stride,
+            max_query_length=args.max_query_length,
             is_training=False)
 
         logger.info("***** Running predictions *****")
         logger.info("  Num orig examples = %d", len(eval_examples))
         logger.info("  Num split examples = %d", len(eval_features))
-        logger.info("  Batch size = %d", predict_batch_size)
+        logger.info("  Batch size = %d", args.predict_batch_size)
 
         all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
         all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
         all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
         all_example_index = torch.arange(all_input_ids.size(0), dtype=torch.long)
         eval_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_example_index)
-        if local_rank == -1:
+        if args.local_rank == -1:
             eval_sampler = SequentialSampler(eval_data)
         else:
             eval_sampler = DistributedSampler(eval_data)
-        eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=predict_batch_size)
+        eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.predict_batch_size)
 
         model.eval()
         all_results = []
@@ -1005,12 +984,12 @@ def main():
                                              end_logits=end_logits))
         # CodaLab Start
         # output_prediction_file = os.path.join(output_dir, "predictions.json")
-        output_prediction_file = os.path.join(output_dir)
+        output_prediction_file = os.path.join(args.output_dir)
         # output_nbest_file = os.path.join(output_dir, "nbest_predictions.json")
         write_predictions(eval_examples, eval_features, all_results,
-                          n_best_size, max_answer_length,
-                          do_lower_case, output_prediction_file,
-                          verbose_logging)
+                          args.n_best_size, args.max_answer_length,
+                          args.do_lower_case, output_prediction_file,
+                          args.verbose_logging)
         #                   output_nbest_file, verbose_logging
         # CodaLab End
 
